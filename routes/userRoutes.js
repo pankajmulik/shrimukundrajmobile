@@ -3,7 +3,7 @@ const router = express.Router()
 const { updateUser, getUser, addUser, verifyotp, sendverificationcode, verifycode, verifyUser, authenticateJWT } = require('../smmcotroller/userController')
 
 
-router.get('/', getUser)
+router.get('/',authenticateJWT, getUser)
 router.post('/signup', addUser)
 
 router.post('/login', verifyUser)

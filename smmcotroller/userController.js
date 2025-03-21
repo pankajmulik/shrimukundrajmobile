@@ -78,9 +78,9 @@ const verifyUser = async (req, res) => {
         } else {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
-        
+
     } catch (error) {
-        res.status(500).json({message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
@@ -126,10 +126,10 @@ const authenticateJWT = (req, res, next) => {
             req.user = decoded;
             next();
         } catch (err) {
-            return res.status(401).json({ message: 'Invalid token' });
+            return res.status(401).json({ message: 'error not found' });
         }
     } else {
-        return res.status(401).json({ message: 'No token provided' });
+        return res.status(401).json({ message: 'not found' });
     }
 };
 
@@ -163,4 +163,4 @@ const verifycode = async (req, res) => {
 
 
 
-module.exports = { updateUser, getUser, addUser, verifyUser,authenticateJWT , verifycode,sendverificationcode};
+module.exports = { updateUser, getUser, addUser, verifyUser, authenticateJWT, verifycode, sendverificationcode };
